@@ -1,0 +1,19 @@
+commit 78b60788ce483888d74fc8ef17fdf0d9b0f4256e
+Author: Sascha Böck <wi16b142@technikum-wien.at>
+Date:   Mon Jan 15 01:01:31 2018 +0100
+
+    added more pictures of devboards, just because it makes me happy :-D
+
+commit 97523e544fdf134408e8a827e9ee7fb34978be87
+Author: Sascha Böck <wi16b142@technikum-wien.at>
+Date:   Mon Jan 15 00:55:59 2018 +0100
+
+    finished logic,
+    
+    todo: add positioning of items according to priority and category. maybe add posX and posY to DataVM
+
+commit e4a9cf6cbb575a0665207e9543ca41884f08cdcc
+Author: Sascha <31797315+wi16b142@users.noreply.github.com>
+Date:   Sun Jan 14 23:32:56 2018 +0100
+
+    Initial commit

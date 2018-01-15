@@ -70,7 +70,13 @@ namespace Training9.ViewModel
                 status = value; RaisePropertyChanged();
             }
         }
-        public static string[] States { get => states; set => states = value; }
+        public static string[] States
+        {
+            get => states; set
+            {
+                states = value;
+            }
+        }
 
         string category;
         string description;

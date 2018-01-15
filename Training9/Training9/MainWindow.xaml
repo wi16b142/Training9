@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:Training9"
         xmlns:Converters="clr-namespace:Training9.Converters" x:Class="Training9.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="900">
+        Title="MainWindow" Height="700" Width="900">
     <Window.Resources>
         <Converters:StatusToBrush x:Key="StatusToBrush"/>
+        <Converters:CategoryToPositionY x:Key="CategoryToPositionY"/>
+        <Converters:PriorityToPositionX x:Key="PriorityToPositionX"/>
     </Window.Resources>
     <Window.DataContext>
         <Binding Path="Main" Source="{StaticResource Locator}"/>
@@ -25,7 +27,7 @@
 
         <TabPanel Margin="10,10,5.2,10">
             <Label Content="Added Items:"/>
-            <Label Content="5"/>
+            <Label Content="{Binding Data.Count}"/>
         </TabPanel>
 
         <Grid Grid.Column="1" Margin="124.8,10,9.6,2">
@@ -40,34 +42,49 @@
             <Label Content="Low" HorizontalAlignment="Right" Grid.Row="1"/>
         </Grid>
 
-        <StackPanel Grid.Row="1" Margin="5,5,2.2,4.4">
-            <TabPanel Margin="5">
-                <Label Content="Category" Width="70"/>
-                <ComboBox  Width="100" ItemsSource="{Binding Data/Categories}" SelectedItem="{Binding NewCategory}"/>
-            </TabPanel>
-            <TabPanel Margin="5">
-                <Label Content="Description" Width="70"/>
-                <TextBox Text="{Binding NewDescription}" Width="100"/>
-            </TabPanel>
-            <TabPanel Margin="5">
-                <Label Content="Type" Width="70"/>
-                <ComboBox ItemsSource="{Binding Data/Types}" SelectedItem="{Binding NewType}" Width="100"/>
-            </TabPanel>
-            <TabPanel Margin="5">
-                <Label Content="Priority" Width="70"/>
-                <ComboBox ItemsSource="{Binding Data/Priorities}" SelectedItem="{Binding NewPriority}" Width="100"/>
-            </TabPanel>
-            <TabPanel Margin="5">
-                <Label Content="Amount" Width="70"/>
-                <TextBox Text="{Binding NewAmount}" Width="100"/>
-            </TabPanel>
-            <Button Content="Add" Command="{Binding AddBtnClick}" Margin="10"/>
-        </StackPanel>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Margin="5,5,2.2,4.4">
+            <StackPanel>
+                <TabPanel Margin="5">
+                    <Label Content="Category" Width="70"/>
+                    <ComboBox  Width="100" ItemsSource="{Binding Data/Categories}" SelectedItem="{Binding NewCategory}"/>
+                </TabPanel>
+                <TabPanel Margin="5">
+                    <Label Content="Description" Width="70"/>
+                    <TextBox Text="{Binding NewDescription}" Width="100"/>
+                </TabPanel>
+                <TabPanel Margin="5">
+                    <Label Content="Type" Width="70"/>
+                    <ComboBox ItemsSource="{Binding Data/Types}" SelectedItem="{Binding NewType}" Width="100">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding}" Width="50" Height="50"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </TabPanel>
+                <TabPanel Margin="5">
+                    <Label Content="Priority" Width="70"/>
+                    <ComboBox ItemsSource="{Binding Data/Priorities}" SelectedItem="{Binding NewPriority}" Width="100"/>
+                </TabPanel>
+                <TabPanel Margin="5">
+                    <Label Content="Amount" Width="70"/>
+                    <TextBox Text="{Binding NewAmount}" Width="100"/>
+                </TabPanel>
+                <TabPanel Margin="5">
+                    <Label Content="Status" Width="70"/>
+                    <ComboBox ItemsSource="{Binding Data/States}" SelectedItem="{Binding NewStatus}" Width="100"/>
+                </TabPanel>
+                <Button Content="Add" Command="{Binding AddBtnClick}" Margin="10"/>
+            </StackPanel>
+        </Border>
+        
 
-        <ItemsControl ItemsSource="{Binding Data}" Grid.Row="1" Grid.Column="1" Margin="5" BorderBrush="Black" BorderThickness="1">
+        <ItemsControl ItemsSource="{Binding Data}" Grid.Row="1" Grid.Column="1" Margin="124.8,5.4,4.6,5.4" BorderBrush="Black" BorderThickness="1">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel/>
+                    <Canvas Height="530">
+
+                    </Canvas>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
@@ -92,7 +109,19 @@
                     </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Canvas.Top" Value="{Binding Category, Converter={StaticResource CategoryToPositionY}}"/>
+                    <Setter Property="Canvas.Left" Value="{Binding Priority, Converter={StaticResource PriorityToPositionX}}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
         </ItemsControl>
+        
+        <Label Content="Category 1" FontSize="20" Margin="5,50,0,0" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Category 2" FontSize="20" Margin="5,155,0,0" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Category 3" FontSize="20" Margin="5,260,0,0" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Category 4" FontSize="20" Margin="5,365,0,0" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Category 5" FontSize="20" Margin="5,470,0,0" Grid.Row="1" Grid.Column="1"/>
 
     </Grid>
 </Window>

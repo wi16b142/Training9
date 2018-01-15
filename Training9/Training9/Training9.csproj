@@ -69,6 +69,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\CategoryToPositionY.cs" />
+    <Compile Include="Converters\PriorityToPositionX.cs" />
     <Compile Include="Converters\StatusToBrush.cs" />
     <Compile Include="ViewModel\DataVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
