@@ -17,9 +17,12 @@ namespace Training9.ViewModel
         static string[] states = new string[] { "ready", "processing", "waiting" };
         static BitmapImage[] types = new BitmapImage[] 
         {
-            new BitmapImage(new Uri("Images/Arduino.jpg", UriKind.Relative)),
             new BitmapImage(new Uri("Images/PIZero.jpg", UriKind.Relative)),
-            new BitmapImage(new Uri("Images/PI3.jpg", UriKind.Relative))
+            new BitmapImage(new Uri("Images/PI3.jpg", UriKind.Relative)),
+            new BitmapImage(new Uri("Images/Mega.jpg", UriKind.Relative)),
+            new BitmapImage(new Uri("Images/Uno.jpg", UriKind.Relative)),  
+            new BitmapImage(new Uri("Images/Nano.jpg", UriKind.Relative)),
+            new BitmapImage(new Uri("Images/Micro.jpg", UriKind.Relative))
         };
 
         public static string[] Categories { get => categories; private set => categories = value; }

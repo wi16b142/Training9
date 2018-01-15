@@ -113,9 +113,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\Arduino.jpg" />
+    <Resource Include="Images\Mega.jpg" />
+    <Resource Include="Images\Micro.jpg" />
+    <Resource Include="Images\Nano.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Uno.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\PI3.jpg" />

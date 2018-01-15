@@ -34,11 +34,12 @@ namespace Training9.ViewModel
         private void GenerateDemoData()
         {
             Data.Add(new DataVM(DataVM.Categories[1], "ZeroW", DataVM.Types[0], DataVM.Priorities[0], 100, DataVM.States[2]));
-            Data.Add(new DataVM(DataVM.Categories[0], "Micro", DataVM.Types[2], DataVM.Priorities[2], 200, DataVM.States[1]));
+            Data.Add(new DataVM(DataVM.Categories[0], "Micro", DataVM.Types[5], DataVM.Priorities[2], 200, DataVM.States[1]));
             Data.Add(new DataVM(DataVM.Categories[2], "PI3", DataVM.Types[1], DataVM.Priorities[1], 300, DataVM.States[0]));
-            Data.Add(new DataVM(DataVM.Categories[1], "PI2", DataVM.Types[2], DataVM.Priorities[2], 400, DataVM.States[0]));
-            Data.Add(new DataVM(DataVM.Categories[0], "Mega", DataVM.Types[2], DataVM.Priorities[1], 500, DataVM.States[1]));
-            Data.Add(new DataVM(DataVM.Categories[2], "Nano", DataVM.Types[1], DataVM.Priorities[1], 600, DataVM.States[2]));
+            Data.Add(new DataVM(DataVM.Categories[1], "PI2", DataVM.Types[1], DataVM.Priorities[2], 400, DataVM.States[0]));
+            Data.Add(new DataVM(DataVM.Categories[0], "Mega", DataVM.Types[2], DataVM.Priorities[0], 500, DataVM.States[1]));
+            Data.Add(new DataVM(DataVM.Categories[2], "Nano", DataVM.Types[4], DataVM.Priorities[1], 600, DataVM.States[2]));
+            Data.Add(new DataVM(DataVM.Categories[1], "Uno", DataVM.Types[3], DataVM.Priorities[2], 700, DataVM.States[1]));
         }
 
         private bool CanAddData()
